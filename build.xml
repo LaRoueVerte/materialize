@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="optiwiz-materialize" default="default">
-    <description>
+<project name="optiwiz-materialize" default="build">
+	<description>
             description
     </description>
 
-    <!-- ================================= 
+	<!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="depends" description="description">
-        <copy todir="../optiwiz-frontend/src/main/webapp/common/ext/materialize-0.96.1/">
-        	<fileset dir="dist">
-        		<include name="**/*"/>
-        	</fileset>
-    	</copy>
-    </target>
+	<target name="copy" depends="depends" description="description">
+		<copy todir="../optiwiz-frontend/src/main/webapp/common/ext/materialize-0.96.1/">
+			<fileset dir="dist">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
 
-    <!-- - - - - - - - - - - - - - - - - - 
+	<target name="build">
+		<exec executable="grunt">
+			<arg line="release" />
+		</exec>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
           target: depends                      
          - - - - - - - - - - - - - - - - - -->
-    <target name="depends">
-    </target>
+	<target name="depends">
+	</target>
 
 </project>
 
